@@ -1,18 +1,59 @@
 import React from 'react';
 import { render } from 'react-testing-library';
 import { IntlProvider } from 'react-intl';
+import { Provider } from 'react-redux';
+import { browserHistory } from 'react-router-dom';
 
-import HomePage from '../index';
+import { HomePage, mapDispatchToProps } from '../index';
+import { createRoute } from '../../App/actions';
+import configureStore from '../../../configureStore';
 
 describe('<HomePage />', () => {
+  let store;
+
+  beforeAll(() => {
+    store = configureStore({}, browserHistory);
+  });
+
   it('should render and match the snapshot', () => {
     const {
       container: { firstChild },
     } = render(
-      <IntlProvider locale="en">
-        <HomePage />
-      </IntlProvider>,
+      <Provider store={store}>
+        <IntlProvider locale="en">
+          <HomePage
+            error={false}
+            onSubmitForm={() => {}}
+            onResetForm={() => {}}
+            route={{ total_distance: 1000, total_time: 100 }}
+          />
+        </IntlProvider>
+      </Provider>,
     );
     expect(firstChild).toMatchSnapshot();
+  });
+
+  describe('mapDispatchToProps', () => {
+    describe('onSubmitForm', () => {
+      it('should be injected', () => {
+        const dispatch = jest.fn();
+        const result = mapDispatchToProps(dispatch);
+        expect(result.onSubmitForm).toBeDefined();
+      });
+
+      it('should dispatch createRoute when called', () => {
+        const dispatch = jest.fn();
+        const result = mapDispatchToProps(dispatch);
+        const values = {
+          starting_location: 'starting_location',
+          drop_off_point: 'drop_off_point',
+        };
+        const setSubmitting = () => {};
+        result.onSubmitForm(values, { setSubmitting });
+        expect(dispatch).toHaveBeenCalledWith(
+          createRoute(values.starting_location, values.drop_off_point),
+        );
+      });
+    });
   });
 });

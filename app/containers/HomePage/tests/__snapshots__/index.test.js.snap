@@ -1,9 +1,92 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<HomePage /> should render and match the snapshot 1`] = `
-<h1>
-  <span>
-    This is the HomePage container!
-  </span>
-</h1>
+<div>
+  <form
+    action="#"
+    class="FlexForm-cg9r68-0 gyaGOY"
+  >
+    <div
+      class="Group-sc-192qf3s-0 hRprux"
+    >
+      <label
+        for="starting_location"
+      >
+        Starting Location
+      </label>
+      <div
+        style="display: flex;"
+      >
+        <input
+          name="starting_location"
+          style="flex-grow: 10;"
+          value="Innocentre, Hong Kong"
+        />
+        <button
+          class="BorderlessButton-rv2fxq-0 lfcHNW"
+          style="flex-grow: 1; flex-basis: 20px;"
+          type="button"
+        >
+          ✖
+        </button>
+      </div>
+      <div
+        class="Error-sc-1ukcj83-0 gMOLrm"
+      />
+    </div>
+    <div
+      class="Group-sc-192qf3s-0 hRprux"
+    >
+      <label
+        for="drop_off_point"
+      >
+        Drop Off Point
+      </label>
+      <div>
+        <input
+          name="drop_off_point"
+          value="Hong Kong International Airport Terminal 1"
+        />
+        <button
+          class="BorderlessButton-rv2fxq-0 lfcHNW"
+          type="button"
+        >
+          ✖
+        </button>
+      </div>
+      <div
+        class="Error-sc-1ukcj83-0 gMOLrm"
+      />
+    </div>
+    <div
+      class="Group-sc-192qf3s-0 hRprux"
+    />
+    <div
+      class="Group-sc-192qf3s-0 hRprux"
+    >
+      <label>
+        total distance: 
+        1000
+      </label>
+      <label>
+        total time: 
+        100
+      </label>
+    </div>
+    <div
+      class="ButtonGroup-iixpzk-0 kTSnxu"
+    >
+      <button
+        type="submit"
+      >
+        Re-Submit
+      </button>
+      <button
+        type="reset"
+      >
+        Reset
+      </button>
+    </div>
+  </form>
+</div>
 `;

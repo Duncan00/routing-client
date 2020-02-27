@@ -23,6 +23,13 @@ module.exports = {
     },
   },
   rules: {
+    'react/button-has-type': [
+      "error", {
+        'button': true,
+        'submit': true,
+        'reset': true,
+      },
+    ],
     'prettier/prettier': ['error', prettierOptions],
     'arrow-body-style': [2, 'as-needed'],
     'class-methods-use-this': 0,
