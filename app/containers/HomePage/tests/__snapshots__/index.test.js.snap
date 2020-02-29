@@ -2,14 +2,14 @@
 
 exports[`<HomePage /> should render and match the snapshot 1`] = `
 <div
-  style="display: flex; flex-direction: row; height: 100vh;"
+  class="Container-qde4bf-0 epZNrJ"
 >
   <form
     action="#"
-    class="FlexForm-cg9r68-0 gyaGOY"
+    class="FlexForm-cg9r68-0 flFvQs"
   >
     <div
-      class="Group-sc-192qf3s-0 hRprux"
+      class="Group-sc-1vik69l-0 ctNMdl"
     >
       <label
         for="starting_location"
@@ -17,27 +17,26 @@ exports[`<HomePage /> should render and match the snapshot 1`] = `
         Starting Location
       </label>
       <div
-        style="display: flex; justify-content: space-between;"
+        class="Flex-xmmkmm-0 hFfyTW"
       >
         <input
+          class="StyledField-sc-1n7zr2c-0 lbCNeO"
           name="starting_location"
-          style="flex-grow: 10;"
           value="Innocentre, Hong Kong"
         />
         <button
-          class="BorderlessButton-rv2fxq-0 lfcHNW"
-          style="flex-grow: 1; flex-basis: 20px;"
+          class="BorderlessButton-mtskuf-0 hmAuih"
           type="button"
         >
           ✖
         </button>
       </div>
       <div
-        class="Error-sc-1ukcj83-0 gMOLrm"
+        class="Error-sc-9u9b4x-0 fQxSSf"
       />
     </div>
     <div
-      class="Group-sc-192qf3s-0 hRprux"
+      class="Group-sc-1vik69l-0 ctNMdl"
     >
       <label
         for="drop_off_point"
@@ -45,28 +44,29 @@ exports[`<HomePage /> should render and match the snapshot 1`] = `
         Drop Off Point
       </label>
       <div
-        style="display: flex;"
+        class="Flex-xmmkmm-0 hFfyTW"
       >
         <input
+          class="StyledField-sc-1n7zr2c-0 lbCNeO"
           name="drop_off_point"
           value="Hong Kong International Airport Terminal 1"
         />
         <button
-          class="BorderlessButton-rv2fxq-0 lfcHNW"
+          class="BorderlessButton-mtskuf-0 hmAuih"
           type="button"
         >
           ✖
         </button>
       </div>
       <div
-        class="Error-sc-1ukcj83-0 gMOLrm"
+        class="Error-sc-9u9b4x-0 fQxSSf"
       />
     </div>
     <div
-      class="Group-sc-192qf3s-0 hRprux"
+      class="Group-sc-1vik69l-0 ctNMdl"
     />
     <div
-      class="Group-sc-192qf3s-0 hRprux"
+      class="Group-sc-1vik69l-0 ctNMdl"
     >
       <label>
         total distance: 
@@ -81,11 +81,13 @@ exports[`<HomePage /> should render and match the snapshot 1`] = `
       class="ButtonGroup-iixpzk-0 kTSnxu"
     >
       <button
+        class="Button-sc-3xkvhg-0 iAySYH"
         type="submit"
       >
         Re-Submit
       </button>
       <button
+        class="Button-sc-3xkvhg-0 iAySYH"
         type="reset"
       >
         Reset

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Error from '../../containers/HomePage/Error';
+import Error from '../Error';
 
 const { compose, withProps } = require('recompose');
 const {
@@ -33,7 +33,7 @@ const Map = compose(
 
     setError(null);
 
-    if (path) {
+    if (path && path >= 2) {
       const firstPoint = path[0];
       const origin = new maps.LatLng(firstPoint[0], firstPoint[1]);
 

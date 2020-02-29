@@ -21,9 +21,9 @@ export function* getRoute() {
   const api = yield select(makeSelectApi());
   const token = yield select(makeSelectRouteToken());
   const requestURL = `${api}/route/${token}`;
+  // const requestURL = `${api}/mock/route/success`;
   // const requestURL = `${api}/mock/route/500`;
   // const requestURL = `${api}/mock/route/failure`;
-  // const requestURL = `${api}/mock/route/success`;
 
   try {
     let data;
