@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<HomePage /> should render and match the snapshot 1`] = `
-<div>
+<div
+  style="display: flex; flex-direction: row; height: 100vh;"
+>
   <form
     action="#"
     class="FlexForm-cg9r68-0 gyaGOY"
@@ -15,7 +17,7 @@ exports[`<HomePage /> should render and match the snapshot 1`] = `
         Starting Location
       </label>
       <div
-        style="display: flex;"
+        style="display: flex; justify-content: space-between;"
       >
         <input
           name="starting_location"
@@ -42,7 +44,9 @@ exports[`<HomePage /> should render and match the snapshot 1`] = `
       >
         Drop Off Point
       </label>
-      <div>
+      <div
+        style="display: flex;"
+      >
         <input
           name="drop_off_point"
           value="Hong Kong International Airport Terminal 1"
@@ -88,5 +92,8 @@ exports[`<HomePage /> should render and match the snapshot 1`] = `
       </button>
     </div>
   </form>
+  <div
+    style="height: 100%;"
+  />
 </div>
 `;

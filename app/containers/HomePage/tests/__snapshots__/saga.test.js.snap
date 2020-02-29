@@ -18,7 +18,7 @@ Object {
   "combinator": false,
   "payload": Object {
     "args": Array [
-      "api.example.com/mock/route/success",
+      "api.example.com/route",
       Object {
         "body": "{\\"origin\\":\\"starting_location\\",\\"destination\\":\\"drop_off_point\\"}",
         "headers": Object {
@@ -52,7 +52,7 @@ Object {
   "combinator": false,
   "payload": Object {
     "args": Array [
-      "api.example.com/mock/route/success",
+      "api.example.com/route",
       Object {
         "body": "{\\"origin\\":\\"starting_location\\",\\"destination\\":\\"drop_off_point\\"}",
         "headers": Object {

@@ -9,6 +9,7 @@ import { useInjectSaga } from 'utils/injectSaga';
 import reducer from 'containers/App/reducer';
 import { createRoute, reset } from 'containers/App/actions';
 import * as Yup from 'yup';
+import Map from 'components/Map';
 import saga from './saga';
 import { makeSelectRoute, makeSelectError } from '../App/selectors';
 import Group from './Group';
@@ -23,10 +24,10 @@ export function HomePage({ onSubmitForm, onResetForm, route, error }) {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
 
-  const { total_distance: totalDistance, total_time: totalTime } = route;
+  const { total_distance: totalDistance, total_time: totalTime, path } = route;
 
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'row', height: '100vh' }}>
       <Formik
         initialValues={{
           starting_location: 'Innocentre, Hong Kong',
@@ -43,18 +44,17 @@ export function HomePage({ onSubmitForm, onResetForm, route, error }) {
           <FlexForm>
             <Group>
               <label htmlFor="starting_location">Starting Location</label>
-              <div style={{ display: 'flex' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Field name="starting_location" style={{ flexGrow: 10 }} />
-                {
+                {values.starting_location && (
                   <BorderlessButton
                     type="button"
                     onClick={() => setFieldValue('starting_location', '')}
-                    hidden={!values.starting_location}
                     style={{ flexGrow: 1, flexBasis: '20px' }}
                   >
                     &#10006;
                   </BorderlessButton>
-                }
+                )}
               </div>
               <Error>
                 <ErrorMessage name="starting_location" component="div" />
@@ -63,7 +63,7 @@ export function HomePage({ onSubmitForm, onResetForm, route, error }) {
 
             <Group>
               <label htmlFor="drop_off_point">Drop Off Point</label>
-              <div>
+              <div style={{ display: 'flex' }}>
                 <Field name="drop_off_point" />
                 {values.drop_off_point && (
                   <BorderlessButton
@@ -99,6 +99,7 @@ export function HomePage({ onSubmitForm, onResetForm, route, error }) {
           </FlexForm>
         )}
       </Formik>
+      <Map path={path} />
     </div>
   );
 }
