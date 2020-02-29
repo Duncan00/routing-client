@@ -24,9 +24,9 @@ async function checkStatus(response) {
     return response;
   }
 
-  const error = new Error();
-  error.message = (await response.text()) || response.statusText;
-
+  const message = (await response.text()) || response.statusText;
+  const error = new Error(message);
+  error.response = response;
   throw error;
 }
 
