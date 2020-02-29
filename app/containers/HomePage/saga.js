@@ -1,6 +1,7 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { CREATE_ROUTE, LOAD_ROUTE } from 'containers/App/constants';
 import {
+  loadRoute,
   routeLoaded,
   routeLoadingError,
   routeCreated,
@@ -73,7 +74,7 @@ export function* createRoute({ startingLocation, dropOffPoint }) {
     const data = yield call(request, requestURL, options);
     yield put(routeCreated(data));
 
-    yield call(getRoute);
+    yield put(loadRoute());
   } catch (err) {
     yield put(routeCreatingError(err));
   }

@@ -11,7 +11,11 @@ import { createRoute, reset } from 'containers/App/actions';
 import * as Yup from 'yup';
 import Map from 'components/Map';
 import saga from './saga';
-import { makeSelectRoute, makeSelectError } from '../App/selectors';
+import {
+  makeSelectRoute,
+  makeSelectError,
+  makeSelectLoading,
+} from '../App/selectors';
 import Group from './Group';
 import FlexForm from './FlexForm';
 import ButtonGroup from './ButtonGroup';
@@ -20,7 +24,7 @@ import Error from './Error';
 
 const key = 'home';
 
-export function HomePage({ onSubmitForm, onResetForm, route, error }) {
+export function HomePage({ onSubmitForm, onResetForm, route, error, loading }) {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
 
@@ -89,10 +93,10 @@ export function HomePage({ onSubmitForm, onResetForm, route, error }) {
             {error && <Error>{error}</Error>}
 
             <ButtonGroup>
-              <button type="submit" disabled={isSubmitting}>
-                {route || error ? 'Re-Submit' : 'Submit'}
+              <button type="submit" disabled={isSubmitting || loading}>
+                {getSubmitButtonWord({ isSubmitting, loading, route, error })}
               </button>
-              <button type="reset" disabled={isSubmitting}>
+              <button type="reset" disabled={isSubmitting || loading}>
                 Reset
               </button>
             </ButtonGroup>
@@ -104,8 +108,19 @@ export function HomePage({ onSubmitForm, onResetForm, route, error }) {
   );
 }
 
+function getSubmitButtonWord({ isSubmitting, loading, route, error }) {
+  if (isSubmitting || loading) {
+    return 'Loading...';
+  }
+  if (route || error) {
+    return 'Re-Submit';
+  }
+  return 'Submit';
+}
+
 HomePage.propTypes = {
   error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  loading: PropTypes.bool,
   onSubmitForm: PropTypes.func.isRequired,
   onResetForm: PropTypes.func.isRequired,
   route: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
@@ -114,11 +129,13 @@ HomePage.propTypes = {
 const mapStateToProps = createStructuredSelector({
   route: makeSelectRoute(),
   error: makeSelectError(),
+  loading: makeSelectLoading(),
 });
 
 export function mapDispatchToProps(dispatch) {
   return {
     onSubmitForm: (values, { setSubmitting }) => {
+      dispatch(reset());
       dispatch(createRoute(values.starting_location, values.drop_off_point));
       setSubmitting(false);
     },

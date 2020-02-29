@@ -27,9 +27,16 @@ const makeSelectError = () =>
     globalState => globalState.error,
   );
 
+const makeSelectLoading = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.loading,
+  );
+
 export {
   makeSelectApi,
   makeSelectRouteToken,
   makeSelectRoute,
   makeSelectError,
+  makeSelectLoading,
 };

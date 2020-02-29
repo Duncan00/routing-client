@@ -1,7 +1,8 @@
-import { put, call, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 
 import { CREATE_ROUTE, LOAD_ROUTE } from 'containers/App/constants';
 import {
+  loadRoute,
   routeLoaded,
   routeLoadingError,
   routeCreated,
@@ -106,8 +107,8 @@ describe('createRoute Saga', () => {
       const putDescriptor = createRouteGenerator.next(response).value;
       expect(putDescriptor).toEqual(put(routeCreated(response)));
 
-      const callDescriptor = createRouteGenerator.next().value;
-      expect(callDescriptor).toEqual(call(getRoute));
+      const putLoadRouteDescriptor = createRouteGenerator.next().value;
+      expect(putLoadRouteDescriptor).toEqual(put(loadRoute()));
     });
   });
 

@@ -29,7 +29,7 @@ const appReducer = (state = initialState, action) =>
       case LOAD_ROUTE:
         draft.loading = true;
         draft.error = false;
-        draft.user_data.campaigns = false;
+        draft.user_data.route = false;
         break;
 
       case LOAD_ROUTE_SUCCESS:
@@ -49,17 +49,18 @@ const appReducer = (state = initialState, action) =>
       case CREATE_ROUTE:
         draft.loading = true;
         draft.error = false;
+        draft.user_data.route_token = '';
         break;
 
       case CREATE_ROUTE_SUCCESS: {
-        draft.user_data.route_token = action.data.token;
         draft.loading = false;
+        draft.user_data.route_token = action.data.token;
         break;
       }
 
       case CREATE_ROUTE_ERROR:
-        draft.error = action.error.message;
         draft.loading = false;
+        draft.error = action.error.message;
         break;
 
       case RESET:
