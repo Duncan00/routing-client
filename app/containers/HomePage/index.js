@@ -44,7 +44,7 @@ HomePage.propTypes = {
   loading: PropTypes.bool.isRequired,
   onSubmitForm: PropTypes.func.isRequired,
   onResetForm: PropTypes.func.isRequired,
-  route: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  route: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]).isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({

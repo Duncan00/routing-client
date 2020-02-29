@@ -64,7 +64,7 @@ const RoutingForm = ({ route, onSubmitForm, onResetForm, error, loading }) => {
   );
 };
 
-function getSubmitButtonWord({ isSubmitting, loading, route, error }) {
+export function getSubmitButtonWord({ isSubmitting, loading, route, error }) {
   if (isSubmitting || loading) {
     return 'Loading...';
   }

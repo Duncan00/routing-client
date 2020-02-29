@@ -23,9 +23,18 @@ describe('<HomePage />', () => {
         <IntlProvider locale="en">
           <HomePage
             error={false}
+            loading={false}
             onSubmitForm={() => {}}
             onResetForm={() => {}}
-            route={{ total_distance: 1000, total_time: 100 }}
+            route={{
+              total_distance: 1000,
+              total_time: 100,
+              path: [
+                ['22.372081', '114.107877'],
+                ['22.326442', '114.167811'],
+                ['22.284419', '114.159510'],
+              ],
+            }}
           />
         </IntlProvider>
       </Provider>,
