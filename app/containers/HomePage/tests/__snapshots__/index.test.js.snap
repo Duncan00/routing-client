@@ -1,15 +1,111 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<HomePage /> should render and match the snapshot 1`] = `
+.c6 {
+  color: red;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+}
+
+.c1 {
+  padding: 30px 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+  max-height: 360px;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c8 {
+  width: 100px;
+}
+
+.c5 {
+  padding: 0;
+  border: none;
+  background: none;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.c4 {
+  width: 90%;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 100vh;
+}
+
+@media only screen and (max-width:600px) {
+  .c1 {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width:600px) {
+  .c1 {
+    width: 360px;
+  }
+}
+
 <div
-  class="Container-qde4bf-0 epZNrJ"
+  class="c0"
 >
   <form
     action="#"
-    class="FlexForm-cg9r68-0 flFvQs"
+    class="c1"
   >
     <div
-      class="Group-sc-1vik69l-0 ctNMdl"
+      class="c2"
     >
       <label
         for="starting_location"
@@ -17,26 +113,26 @@ exports[`<HomePage /> should render and match the snapshot 1`] = `
         Starting Location
       </label>
       <div
-        class="Flex-xmmkmm-0 hFfyTW"
+        class="c3"
       >
         <input
-          class="StyledField-sc-1n7zr2c-0 lbCNeO"
+          class="c4"
           name="starting_location"
           value="Innocentre, Hong Kong"
         />
         <button
-          class="BorderlessButton-mtskuf-0 hmAuih"
+          class="c5"
           type="button"
         >
           ✖
         </button>
       </div>
       <div
-        class="Error-sc-9u9b4x-0 fQxSSf"
+        class="c6"
       />
     </div>
     <div
-      class="Group-sc-1vik69l-0 ctNMdl"
+      class="c2"
     >
       <label
         for="drop_off_point"
@@ -44,29 +140,29 @@ exports[`<HomePage /> should render and match the snapshot 1`] = `
         Drop Off Point
       </label>
       <div
-        class="Flex-xmmkmm-0 hFfyTW"
+        class="c3"
       >
         <input
-          class="StyledField-sc-1n7zr2c-0 lbCNeO"
+          class="c4"
           name="drop_off_point"
           value="Hong Kong International Airport Terminal 1"
         />
         <button
-          class="BorderlessButton-mtskuf-0 hmAuih"
+          class="c5"
           type="button"
         >
           ✖
         </button>
       </div>
       <div
-        class="Error-sc-9u9b4x-0 fQxSSf"
+        class="c6"
       />
     </div>
     <div
-      class="Group-sc-1vik69l-0 ctNMdl"
+      class="c2"
     />
     <div
-      class="Group-sc-1vik69l-0 ctNMdl"
+      class="c2"
     >
       <label>
         total distance: 
@@ -78,16 +174,16 @@ exports[`<HomePage /> should render and match the snapshot 1`] = `
       </label>
     </div>
     <div
-      class="ButtonGroup-iixpzk-0 kTSnxu"
+      class="c7"
     >
       <button
-        class="Button-sc-3xkvhg-0 iAySYH"
+        class="c8"
         type="submit"
       >
         Re-Submit
       </button>
       <button
-        class="Button-sc-3xkvhg-0 iAySYH"
+        class="c8"
         type="reset"
       >
         Reset
