@@ -11,8 +11,8 @@ module.exports = {
     global: {
       statements: 98,
       branches: 91,
-      functions: 98,
-      lines: 98,
+      functions: 93,
+      lines: 97,
     },
   },
   moduleDirectories: ['node_modules', 'app'],

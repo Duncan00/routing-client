@@ -21,9 +21,6 @@ export function* getRoute() {
   const api = yield select(makeSelectApi());
   const token = yield select(makeSelectRouteToken());
   const requestURL = `${api}/route/${token}`;
-  // const requestURL = `${api}/mock/route/success`;
-  // const requestURL = `${api}/mock/route/500`;
-  // const requestURL = `${api}/mock/route/failure`;
 
   try {
     let data;
@@ -55,8 +52,7 @@ export function* getRoute() {
 export function* createRoute({ startingLocation, dropOffPoint }) {
   const api = yield select(makeSelectApi());
   const requestURL = `${api}/route`;
-  // const requestURL = `${api}/mock/route/success`;
-  // const requestURL = `${api}/mock/route/500`;
+
   const body = {
     origin: startingLocation,
     destination: dropOffPoint,
