@@ -7,6 +7,7 @@ import { browserHistory } from 'react-router-dom';
 import { HomePage, mapDispatchToProps } from '../index';
 import { createRoute } from '../../App/actions';
 import configureStore from '../../../configureStore';
+import setGlobalGoogleMock from '../../../../internals/testing/setGlobalGoogleMock';
 
 describe('<HomePage />', () => {
   let store;
@@ -16,6 +17,8 @@ describe('<HomePage />', () => {
   });
 
   it('should render and match the snapshot', () => {
+    setGlobalGoogleMock();
+
     const {
       container: { firstChild },
     } = render(

@@ -1,9 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Map /> should render Map container 1`] = `
-<div>
-  <div
-    style="height: 100%;"
-  />
-</div>
+<withGoogleMap(Component)
+  containerElement={
+    <div
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    />
+  }
+  loadingElement={
+    <div
+      style={
+        Object {
+          "height": "100%",
+        }
+      }
+    />
+  }
+  mapElement={
+    <div
+      style={
+        Object {
+          "height": "100%",
+        }
+      }
+    />
+  }
+  path={
+    Array [
+      Array [
+        "22.372081",
+        "114.107877",
+      ],
+      Array [
+        "22.326442",
+        "114.167811",
+      ],
+      Array [
+        "22.284419",
+        "114.159510",
+      ],
+    ]
+  }
+/>
 `;

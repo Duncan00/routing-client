@@ -28,6 +28,8 @@ import '!file-loader?name=[name].[ext]!./images/favicon.ico';
 import 'file-loader?name=.htaccess!./.htaccess';
 /* eslint-enable import/no-unresolved, import/extensions */
 
+import loadScripts from './loadScripts';
+
 import configureStore from './configureStore';
 
 // Import i18n messages
@@ -67,12 +69,13 @@ if (!window.Intl) {
     resolve(import('intl'));
   })
     .then(() => Promise.all([import('intl/locale-data/jsonp/en.js')]))
+    .then(() => loadScripts())
     .then(() => render(translationMessages))
     .catch(err => {
       throw err;
     });
 } else {
-  render(translationMessages);
+  loadScripts().then(() => render(translationMessages));
 }
 
 // Install ServiceWorker and AppCache in the end since

@@ -1,25 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Error from '../Error';
-
-const { compose, withProps } = require('recompose');
-const {
-  withScriptjs,
+import { compose, withProps } from 'recompose';
+import {
   withGoogleMap,
   GoogleMap,
   DirectionsRenderer,
-} = require('react-google-maps');
+} from 'react-google-maps';
+import Error from '../Error';
 
 const Map = compose(
   withProps({
-    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${
-      process.env.GOOGLE_MAP_API_KEY
-    }`,
     loadingElement: <div style={{ height: '100%' }} />,
     containerElement: <div style={{ width: '100%' }} />,
     mapElement: <div style={{ height: '100%' }} />,
   }),
-  withScriptjs,
   withGoogleMap,
 )(props => {
   // eslint-disable-next-line no-undef
@@ -33,7 +27,7 @@ const Map = compose(
 
     setError(null);
 
-    if (path && path >= 2) {
+    if (path && path.length >= 2) {
       const firstPoint = path[0];
       const origin = new maps.LatLng(firstPoint[0], firstPoint[1]);
 

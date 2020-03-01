@@ -1,9 +1,12 @@
 import React from 'react';
 import { render } from 'react-testing-library';
 import RoutingForm, { getSubmitButtonWord } from '../index';
+import setGlobalGoogleMock from '../../../../internals/testing/setGlobalGoogleMock';
 
 describe('<RoutingForm />', () => {
   it('should render RoutingForm', () => {
+    setGlobalGoogleMock();
+
     const { container } = render(
       <RoutingForm
         loading

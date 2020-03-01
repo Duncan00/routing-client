@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-testing-library';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import Map from '../index';
 
 describe('<Map />', () => {
@@ -9,7 +9,10 @@ describe('<Map />', () => {
       ['22.326442', '114.167811'],
       ['22.284419', '114.159510'],
     ];
-    const { container } = render(<Map path={path} />);
-    expect(container).toMatchSnapshot();
+
+    const renderer = new ShallowRenderer();
+    const result = renderer.render(<Map path={path} />);
+
+    expect(result).toMatchSnapshot();
   });
 });
