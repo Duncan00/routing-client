@@ -68,7 +68,7 @@ Object {
 }
 `;
 
-exports[`getRoute Saga When status === 'failure' in response should put routeLoadingError 1`] = `
+exports[`getRoute Saga When request error should put routeLoadingError with request error 1`] = `
 Object {
   "@@redux-saga/IO": true,
   "combinator": false,
@@ -80,7 +80,7 @@ Object {
 }
 `;
 
-exports[`getRoute Saga When status === 'failure' in response should put routeLoadingError 2`] = `
+exports[`getRoute Saga When request error should put routeLoadingError with request error 2`] = `
 Object {
   "@@redux-saga/IO": true,
   "combinator": false,
@@ -92,7 +92,46 @@ Object {
 }
 `;
 
-exports[`getRoute Saga When status === 'failure' in response should put routeLoadingError 3`] = `
+exports[`getRoute Saga When request error should put routeLoadingError with request error 3`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "combinator": false,
+  "payload": Object {
+    "args": Array [
+      "api.example.com/route/token",
+    ],
+    "context": null,
+    "fn": [Function],
+  },
+  "type": "CALL",
+}
+`;
+
+exports[`getRoute Saga When status === 'failure' in response should put routeLoadingError with response error 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "combinator": false,
+  "payload": Object {
+    "args": Array [],
+    "selector": [Function],
+  },
+  "type": "SELECT",
+}
+`;
+
+exports[`getRoute Saga When status === 'failure' in response should put routeLoadingError with response error 2`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "combinator": false,
+  "payload": Object {
+    "args": Array [],
+    "selector": [Function],
+  },
+  "type": "SELECT",
+}
+`;
+
+exports[`getRoute Saga When status === 'failure' in response should put routeLoadingError with response error 3`] = `
 Object {
   "@@redux-saga/IO": true,
   "combinator": false,

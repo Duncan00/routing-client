@@ -67,11 +67,14 @@ describe('getRoute Saga', () => {
       expect(putDescriptor).toEqual(
         put(routeLoadingError(new Error('Server Busy. Please try again.'))),
       );
+
+      const done = getRouteGenerator.next().value;
+      expect(done).toBeUndefined();
     });
   });
 
   describe("When status === 'failure' in response", () => {
-    it('should put routeLoadingError', () => {
+    it('should put routeLoadingError with response error', () => {
       const failureResponse = {
         ...getMockResponse(STATUS.FAILURE),
         error: 'Some errors',
@@ -80,6 +83,16 @@ describe('getRoute Saga', () => {
       expect(putDescriptor).toEqual(
         put(routeLoadingError(new Error(failureResponse.error))),
       );
+    });
+  });
+
+  describe('When request error', () => {
+    it('should put routeLoadingError with request error', () => {
+      const error = new Error('NetworkError');
+
+      const putDescriptor = getRouteGenerator.throw(error).value;
+
+      expect(putDescriptor).toEqual(put(routeLoadingError(error)));
     });
   });
 });
