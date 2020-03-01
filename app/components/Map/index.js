@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { compose, withProps } from 'recompose';
 import {
@@ -7,6 +7,7 @@ import {
   DirectionsRenderer,
 } from 'react-google-maps';
 import Error from '../Error';
+import useDirectionServiceRoute from './useDirectionServiceRoute';
 
 const Map = compose(
   withProps({
@@ -16,54 +17,20 @@ const Map = compose(
   }),
   withGoogleMap,
 )(props => {
-  // eslint-disable-next-line no-undef
-  const { maps } = google;
-  const DirectionsService = new maps.DirectionsService();
-  const [directions, setDirections] = useState(null);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const { path } = props;
-
-    setError(null);
-
-    if (path && path.length >= 2) {
-      const firstPoint = path[0];
-      const origin = new maps.LatLng(firstPoint[0], firstPoint[1]);
-
-      const lastPoint = path.slice(-1)[0];
-      const destination = new maps.LatLng(lastPoint[0], lastPoint[1]);
-
-      const waypoints = path
-        .slice(1, -1)
-        .map(([lat, lng]) => ({ location: new maps.LatLng(lat, lng) }));
-
-      DirectionsService.route(
-        {
-          origin,
-          destination,
-          waypoints,
-          travelMode: maps.TravelMode.DRIVING,
-        },
-        (result, status) => {
-          if (status === maps.DirectionsStatus.OK) {
-            setDirections(result);
-          } else {
-            setError(`Error fetching directions: ${result}`);
-          }
-        },
-      );
-    } else {
-      setDirections(null);
-    }
-  }, [props.path]);
+  const [
+    {
+      data: { directions },
+      error,
+    },
+  ] = useDirectionServiceRoute(props.path);
 
   return (
     <div>
       <GoogleMap
         defaultZoom={11}
         // Default center to Hong Kong
-        defaultCenter={new maps.LatLng(22.28552, 114.15769)}
+        // eslint-disable-next-line no-undef
+        defaultCenter={new google.maps.LatLng(22.28552, 114.15769)}
       >
         {directions && <DirectionsRenderer directions={directions} />}
       </GoogleMap>

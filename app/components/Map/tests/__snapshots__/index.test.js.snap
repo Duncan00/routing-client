@@ -1,49 +1,100 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Map /> should render Map container 1`] = `
-<withGoogleMap(Component)
-  containerElement={
+exports[`<Map /> When path is not provided should render Map container without error 1`] = `
+<div>
+  <div
+    style="width: 100%;"
+  >
     <div
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
+      style="height: 100%;"
     />
-  }
-  loadingElement={
+    <div>
+      <div>
+        <div />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Map /> When path is provided When error occurs from DirectionService.route should render error 1`] = `
+.c0 {
+  color: red;
+}
+
+<div>
+  <div
+    style="width: 100%;"
+  >
     <div
-      style={
-        Object {
-          "height": "100%",
-        }
-      }
+      style="height: 100%;"
     />
-  }
-  mapElement={
+    <div>
+      <div>
+        <div />
+        <div
+          class="c0"
+        >
+          Error fetching directions: Route not found.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Map /> When path is provided When no error occurs from DirectionService.route should DirectionService.route with correct params 1`] = `
+Array [
+  Array [
+    Object {
+      "destination": Object {
+        "lat": "5",
+        "lng": "114.159510",
+      },
+      "origin": Object {
+        "lat": "1",
+        "lng": "114.107877",
+      },
+      "travelMode": "DRIVING",
+      "waypoints": Array [
+        Object {
+          "location": Object {
+            "lat": "2",
+            "lng": "114.167811",
+          },
+        },
+        Object {
+          "location": Object {
+            "lat": "3",
+            "lng": "114.159510",
+          },
+        },
+        Object {
+          "location": Object {
+            "lat": "4",
+            "lng": "114.159510",
+          },
+        },
+      ],
+    },
+    [Function],
+  ],
+]
+`;
+
+exports[`<Map /> When path is provided When no error occurs from DirectionService.route should render Map container without error 1`] = `
+<div>
+  <div
+    style="width: 100%;"
+  >
     <div
-      style={
-        Object {
-          "height": "100%",
-        }
-      }
+      style="height: 100%;"
     />
-  }
-  path={
-    Array [
-      Array [
-        "22.372081",
-        "114.107877",
-      ],
-      Array [
-        "22.326442",
-        "114.167811",
-      ],
-      Array [
-        "22.284419",
-        "114.159510",
-      ],
-    ]
-  }
-/>
+    <div>
+      <div>
+        <div />
+      </div>
+    </div>
+  </div>
+</div>
 `;

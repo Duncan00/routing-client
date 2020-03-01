@@ -1,10 +1,12 @@
-export default function setGlobalGoogleMock() {
+export default function setGlobalGoogleMock(mockRouteFn) {
   const directionsStatus = { OK: 'OK' };
-  const route = jest
-    .fn()
-    .mockImplementation((params, callback) =>
-      callback({}, directionsStatus.OK),
-    );
+  const route =
+    mockRouteFn ||
+    jest
+      .fn()
+      .mockImplementation((params, callback) =>
+        callback({}, directionsStatus.OK),
+      );
 
   global.google = {
     maps: {
@@ -19,7 +21,10 @@ export default function setGlobalGoogleMock() {
         setDirections: jest.fn(),
         setMap: jest.fn(),
       })),
-      LatLng: jest.fn(),
+      LatLng: jest.fn().mockImplementation((lat, lng) => ({
+        lat,
+        lng,
+      })),
       places: {
         Autocomplete: jest.fn().mockImplementation(() => ({
           addListener: jest.fn(),
@@ -27,4 +32,6 @@ export default function setGlobalGoogleMock() {
       },
     },
   };
+
+  return route;
 }
