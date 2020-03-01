@@ -1,6 +1,6 @@
-# Routing Client
-A responsive client application to find distance and time by inputting starting location and drop off point. 
-And draw route on google map.
+# Routing Client [![Build Status](https://travis-ci.com/Duncan00/routing-client.svg?token=yDxyEKGopauybAdBwDoQ&branch=master)](https://travis-ci.com/Duncan00/routing-client)
+A responsive client application to find distance and time by inputting starting location and drop off point with autocomplete assistant. 
+And draw result route on google map.
 
 The project is based on [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate).
  
