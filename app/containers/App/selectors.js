@@ -34,6 +34,7 @@ const makeSelectLoading = () =>
   );
 
 export {
+  selectGlobal,
   makeSelectApi,
   makeSelectRouteToken,
   makeSelectRoute,

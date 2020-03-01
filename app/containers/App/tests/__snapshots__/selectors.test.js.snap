@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App/selectors selectGlobal When global state is falsy should return the global initial state 1`] = `
+Object {
+  "api": undefined,
+  "error": false,
+  "loading": false,
+  "user_data": Object {
+    "route": false,
+    "route_token": "",
+  },
+}
+`;
