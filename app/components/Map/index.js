@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { compose, withProps } from 'recompose';
 import {
   withGoogleMap,
   GoogleMap,
@@ -9,14 +8,7 @@ import {
 import Error from '../Error';
 import useDirectionServiceRoute from './useDirectionServiceRoute';
 
-const Map = compose(
-  withProps({
-    loadingElement: <div style={{ height: '100%' }} />,
-    containerElement: <div style={{ width: '100%' }} />,
-    mapElement: <div style={{ height: '100%' }} />,
-  }),
-  withGoogleMap,
-)(props => {
+const Map = withGoogleMap(props => {
   const [
     {
       data: { directions },
@@ -41,6 +33,12 @@ const Map = compose(
 
 Map.propTypes = {
   path: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+};
+
+Map.defaultProps = {
+  loadingElement: <div style={{ height: '100%' }} />,
+  containerElement: <div style={{ width: '100%' }} />,
+  mapElement: <div style={{ height: '100%' }} />,
 };
 
 export default Map;
