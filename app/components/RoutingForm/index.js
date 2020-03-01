@@ -15,8 +15,8 @@ const RoutingForm = ({ route, onSubmitForm, onResetForm, error, loading }) => {
   return (
     <Formik
       initialValues={{
-        starting_location: 'Innocentre, Hong Kong',
-        drop_off_point: 'Hong Kong International Airport Terminal 1',
+        starting_location: '',
+        drop_off_point: '',
       }}
       validationSchema={Yup.object({
         starting_location: Yup.string().required('Required!'),
